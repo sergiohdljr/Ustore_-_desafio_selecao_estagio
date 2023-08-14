@@ -44,7 +44,7 @@ public class App {
             String areaTotalFormatada = new DecimalFormat("#,##0.00").format(areaTotal);
             System.out.println("Área total " + areaTotalFormatada + " cm²");
         } catch (Exception e) {
-            System.out.println("Entrada inválida." + e);
+            System.out.println("Entrada inválida. " + e);
         }
     }
 }
