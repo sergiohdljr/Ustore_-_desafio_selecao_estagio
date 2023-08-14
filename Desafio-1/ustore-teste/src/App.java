@@ -23,7 +23,7 @@ public class App {
                     areaTotal += poligono.calcularArea();
                     System.out.println("Polígono adicionado com sucesso.\n");
                 } else {
-                    throw new Exception("Valor não suportado");
+                    throw new Exception("Valor não suportado.");
                 }
                 System.out.print(
                         "Deseja inserir outro polígono ? \nS - Inserir novo polígono. \nN - Calcular areas. \n(S/N): ");
@@ -44,7 +44,7 @@ public class App {
             });
 
             String areaTotalFormatada = new DecimalFormat("#,##0.00").format(areaTotal);
-            System.out.println("Área total " + areaTotalFormatada + " cm²");
+            System.out.println("Área total: " + areaTotalFormatada + " cm²");
         } catch (Exception e) {
             System.out.println("Entrada inválida. " + e);
         }
