@@ -1,14 +1,12 @@
 
 public class Poligono {
-    protected int numLados;
-    protected double tamanhoLado;
+    private int numLados;
+    private double tamanhoLado;
 
     public Poligono(int numLados, double tamanhoLado) {
         this.numLados = numLados;
         this.tamanhoLado = tamanhoLado;
     }
-
-
 
     public double calcularArea() {
         if (numLados == 3) {
@@ -18,6 +16,22 @@ public class Poligono {
         } else {
             return 0;
         }
+    }
+
+    public int getNumLados() {
+        return numLados;
+    }
+
+    public double getTamanhoLado() {
+        return tamanhoLado;
+    }
+
+    public void setNumLados(int numLados) {
+        this.numLados = numLados;
+    }
+
+    public void setTamanhoLado(double tamanhoLado) {
+        this.tamanhoLado = tamanhoLado;
     }
 
 }

@@ -21,27 +21,32 @@ public class App {
                     Poligono poligono = new Poligono(numLados, tamanhoLado);
                     poligonos.add(poligono);
                     areaTotal += poligono.calcularArea();
+                    System.out.println("Polígono adicionado com sucesso.");
                 } else {
                     System.out.println("Número de lados não suportado.");
                 }
-                System.out.print("Se Deseja inserir outro polígono digite SIM :");
+                System.out.print("Deseja inserir outro polígono ? \nS - Inserir novo polígono. \nN - Calcular areas. \n(S/N): ");
                 String continuar = scanner.next();
-                if (!continuar.equalsIgnoreCase("SIM")) {
+                if (continuar.equalsIgnoreCase("N")) {
                     break;
+                } else if (continuar.equalsIgnoreCase("S")) {
+                    System.out.println("Adicione outro Poligono:");
+                } else {
+                    throw new Exception("Apenas S/N");
                 }
             }
             poligonos.forEach(poligono -> {
-                String nomePoligono = poligono.numLados == 3 ? "Triângulo" : "Quadrado";
+                String nomePoligono = poligono.getNumLados() == 3 ? "Triângulo" : "Quadrado";
                 String areaPoligono = new DecimalFormat("#,##0.00").format(poligono.calcularArea());
                 System.out
-                        .println(nomePoligono + " de lado " + poligono.tamanhoLado + " cm e área " + areaPoligono
+                        .println(nomePoligono + " de lado " + poligono.getTamanhoLado() + " cm e área " + areaPoligono
                                 + " cm²");
             });
 
             String areaTotalFormatada = new DecimalFormat("#,##0.00").format(areaTotal);
             System.out.println("Área total " + areaTotalFormatada + " cm²");
         } catch (Exception e) {
-            System.out.println("Entrada inválida. Tente novamente.");
+            System.out.println("Entrada inválida." + e);
         }
     }
 }
