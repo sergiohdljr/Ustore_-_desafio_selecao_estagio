@@ -21,7 +21,7 @@ public class App {
                     Poligono poligono = new Poligono(numLados, tamanhoLado);
                     poligonos.add(poligono);
                     areaTotal += poligono.calcularArea();
-                    System.out.println("Polígono adicionado com sucesso.");
+                    System.out.println("Polígono adicionado com sucesso.\n");
                 } else {
                     System.out.println("Número de lados não suportado.");
                 }
@@ -30,7 +30,7 @@ public class App {
                 if (continuar.equalsIgnoreCase("N")) {
                     break;
                 } else if (continuar.equalsIgnoreCase("S")) {
-                    System.out.println("Adicione outro Poligono:");
+                    System.out.println("\nAdicione outro Poligono:");
                 } else {
                     throw new Exception("Apenas S/N");
                 }
@@ -38,9 +38,7 @@ public class App {
             poligonos.forEach(poligono -> {
                 String nomePoligono = poligono.getNumLados() == 3 ? "Triângulo" : "Quadrado";
                 String areaPoligono = new DecimalFormat("#,##0.00").format(poligono.calcularArea());
-                System.out
-                        .println(nomePoligono + " de lado " + poligono.getTamanhoLado() + " cm e área " + areaPoligono
-                                + " cm²");
+                System.out.println(nomePoligono + " de lado " + poligono.getTamanhoLado() + " cm e área " + areaPoligono + " cm²");
             });
 
             String areaTotalFormatada = new DecimalFormat("#,##0.00").format(areaTotal);
