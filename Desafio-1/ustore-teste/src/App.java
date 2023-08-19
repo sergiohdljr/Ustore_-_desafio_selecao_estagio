@@ -18,6 +18,9 @@ public class App {
                 if (numLados == 3 || numLados == 4) {
                     System.out.print("Informe o tamanho do lado do polígono (em cm): ");
                     double tamanhoLado = scanner.nextDouble();
+                    if (tamanhoLado < 0) {
+                        throw new Exception("Valores negativos não são suportados.");
+                    }
                     Poligono poligono = new Poligono(numLados, tamanhoLado);
                     poligonos.add(poligono);
                     areaTotal += poligono.calcularArea();
@@ -46,7 +49,7 @@ public class App {
             String areaTotalFormatada = new DecimalFormat("#,##0.00").format(areaTotal);
             System.out.println("Área total: " + areaTotalFormatada + " cm²");
         } catch (Exception e) {
-            System.out.println("Entrada inválida. " + e);
+            System.out.println("Entrada inválida. " + (e.getMessage() != null ? e.getMessage() : ' ' ));
         }
     }
 }
